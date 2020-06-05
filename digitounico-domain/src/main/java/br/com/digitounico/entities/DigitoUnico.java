@@ -15,6 +15,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import br.com.digitounico.utils.Nomenclatura;
 import lombok.AllArgsConstructor;
@@ -39,7 +40,7 @@ public class DigitoUnico extends AuditableEntity<Long> {
 	@JoinColumn(name = Nomenclatura.CHAVE_PRIMARIA + "usuario", foreignKey = @ForeignKey(name = Nomenclatura.CHAVE_ESTRANGEIRA + "digito_unico_usuario"))
 	private Usuario usuario;
 	
-	@NotBlank
+	@NotBlank @Pattern(regexp = "^[0-9]+$")
 	@Column(name = Nomenclatura.DESCRICAO + "numero", nullable = false)
 	private String numero;
 	
