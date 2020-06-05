@@ -11,9 +11,7 @@ import br.com.digitounico.converters.UsuarioConverter;
 import br.com.digitounico.dto.UsuarioDTO;
 import br.com.digitounico.entities.Usuario;
 import br.com.digitounico.repositories.UsuarioRepository;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @Service
 @Transactional(propagation = Propagation.REQUIRED)
 public class UsuarioService extends AbstractService<Usuario, UsuarioDTO, Long> {
