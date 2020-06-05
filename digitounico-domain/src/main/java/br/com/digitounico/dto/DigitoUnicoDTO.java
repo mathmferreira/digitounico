@@ -12,7 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
 @EqualsAndHashCode(callSuper = false)
-public class DigitoUnicoDTO extends DTO {
+public class DigitoUnicoDTO extends BaseDTO {
 
 	private Long id;
 	private String numero;

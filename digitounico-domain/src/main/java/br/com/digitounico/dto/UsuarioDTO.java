@@ -14,7 +14,7 @@ import lombok.Setter;
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
 @EqualsAndHashCode(callSuper = false)
-public class UsuarioDTO extends DTO {
+public class UsuarioDTO extends BaseDTO {
 
 	private Long id;
 	private String nome;
