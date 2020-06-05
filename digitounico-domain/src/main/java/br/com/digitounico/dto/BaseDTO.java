@@ -1,5 +1,5 @@
 package br.com.digitounico.dto;
 
-public abstract class DTO {
+public abstract class BaseDTO {
 
 }
