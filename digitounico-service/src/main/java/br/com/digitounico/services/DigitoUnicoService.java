@@ -15,6 +15,7 @@ import br.com.digitounico.converters.DigitoUnicoConverter;
 import br.com.digitounico.dto.DigitoUnicoDTO;
 import br.com.digitounico.entities.DigitoUnico;
 import br.com.digitounico.repositories.DigitoUnicoRepository;
+import br.com.digitounico.utils.CacheUtils;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -47,13 +48,22 @@ public class DigitoUnicoService extends AbstractService<DigitoUnico, DigitoUnico
 
 	public DigitoUnicoDTO calcularDigitoUnico(DigitoUnicoDTO dto) {
 		log.debug(">>> DigitoUnicoService.calcularDigitoUnico [dto={}]", dto);
-		StringBuilder digito = new StringBuilder();
-
-		for (int i = 0; i < dto.getConcatenacao(); i++) {
-			digito.append(dto.getNumero());
+		
+		Integer cache = CacheUtils.search(dto);
+		
+		if (cache != null) {
+			dto.setDigitoUnicoGerado(cache);
+		} else {
+			StringBuilder digito = new StringBuilder();
+		
+			for (int i = 0; i < dto.getConcatenacao(); i++) {
+				digito.append(dto.getNumero());
+			}
+		
+			dto.setDigitoUnicoGerado(somarDigitos(digito.toString()));
+			CacheUtils.addToCache(dto);
 		}
-
-		dto.setDigitoUnicoGerado(somarDigitos(digito.toString()));
+		
 		dto = super.save(dto);
 
 		log.debug("<<< DigitoUnicoService.calcularDigitoUnico [dto={}]", dto);
