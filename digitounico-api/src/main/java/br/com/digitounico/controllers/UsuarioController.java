@@ -25,8 +25,8 @@ public class UsuarioController extends AbstractController<Usuario, UsuarioDTO, L
 	}
 	
 	@PostMapping(value = "/{id}/criptografar")
-	public ResponseEntity<String> criptografar(@PathVariable Long idUsuario) {
-		service.criptografarUsuario(idUsuario);
+	public ResponseEntity<String> criptografar(@PathVariable Long id) {
+		service.criptografarUsuario(id);
 		return ResponseEntity.ok("Usuário criptografado com sucesso");
 	}
 

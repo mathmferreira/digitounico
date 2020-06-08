@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>br.com.digitounico</groupId>
 		<artifactId>digitounico</artifactId>
-		<version>1.0.0</version>
+		<version>1.1.1</version>
 	</parent>
 	<artifactId>digitounico-api</artifactId>
 	<name>digitounico-api</name>
@@ -14,12 +14,11 @@
 		<dependency>
 			<groupId>br.com.digitounico</groupId>
 			<artifactId>digitounico-service</artifactId>
-			<version>1.0.0</version>
+			<version>1.1.1</version>
 		</dependency>
 		<dependency>
 			<groupId>io.rest-assured</groupId>
 			<artifactId>rest-assured</artifactId>
-			<version>4.3.0</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
