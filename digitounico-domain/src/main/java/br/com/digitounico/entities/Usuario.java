@@ -33,9 +33,11 @@ public class Usuario extends AuditableEntity<Long> {
 	@Column(name = Nomenclatura.DESCRICAO + "nome", nullable = false)
 	private String nome;
 	
-	@Email
-	@NotBlank
+	@NotBlank @Email
 	@Column(name = Nomenclatura.DESCRICAO + "email", nullable = false)
 	private String email;
+	
+	@Column(name = Nomenclatura.LOGICO + "criptografado", nullable = false)
+	private boolean criptografado;
 	
 }
