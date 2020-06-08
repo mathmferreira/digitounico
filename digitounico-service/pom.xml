@@ -9,13 +9,24 @@
 	</parent>
 	<artifactId>digitounico-service</artifactId>
 	<name>digitounico-service</name>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>br.com.digitounico</groupId>
 			<artifactId>digitounico-domain</artifactId>
 			<version>1.0.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.10</version>
+		</dependency>
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>4.3.0</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
-	
+
 </project>
