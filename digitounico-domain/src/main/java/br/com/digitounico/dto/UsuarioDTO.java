@@ -5,6 +5,8 @@ import java.util.List;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,6 +28,9 @@ public class UsuarioDTO extends BaseDTO {
 	
 	@NotBlank @Email
 	private String email;
+	
+	@JsonIgnore
+	private boolean criptografado;
 	
 	private List<DigitoUnicoDTO> digitosUnicos;
 

@@ -94,6 +94,7 @@ public abstract class AbstractService<T extends Persistable<PK>, DTO extends Bas
 	public void delete(PK id) {
 		log.debug(">>> AbstractService.delete [id={}] ", id);
 		getRepository().deleteById(id);
+		log.debug("<<< AbstractService.delete [id={}] ", id);
 	}
 
 }

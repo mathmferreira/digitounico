@@ -5,17 +5,26 @@
 	<parent>
 		<groupId>br.com.digitounico</groupId>
 		<artifactId>digitounico</artifactId>
-		<version>1.0.0</version>
+		<version>1.2.0</version>
 	</parent>
 	<artifactId>digitounico-service</artifactId>
 	<name>digitounico-service</name>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>br.com.digitounico</groupId>
 			<artifactId>digitounico-domain</artifactId>
-			<version>1.0.0</version>
+			<version>1.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	
+
 </project>
