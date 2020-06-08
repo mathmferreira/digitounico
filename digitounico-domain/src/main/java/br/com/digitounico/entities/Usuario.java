@@ -7,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 import br.com.digitounico.utils.Nomenclatura;
@@ -30,11 +29,11 @@ public class Usuario extends AuditableEntity<Long> {
 	private Long id;
 	
 	@NotBlank
-	@Column(name = Nomenclatura.DESCRICAO + "nome", nullable = false)
+	@Column(name = Nomenclatura.DESCRICAO + "nome", nullable = false, length = 2000)
 	private String nome;
 	
-	@NotBlank @Email
-	@Column(name = Nomenclatura.DESCRICAO + "email", nullable = false)
+	@NotBlank
+	@Column(name = Nomenclatura.DESCRICAO + "email", nullable = false, length = 2000)
 	private String email;
 	
 	@Column(name = Nomenclatura.LOGICO + "criptografado", nullable = false)
