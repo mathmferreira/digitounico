@@ -11,6 +11,9 @@ import br.com.digitounico.dto.UsuarioDTO;
 import br.com.digitounico.entities.Usuario;
 import br.com.digitounico.services.AbstractService;
 import br.com.digitounico.services.UsuarioService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 
 @RestController
 @RequestMapping(value = "/api/usuario")
@@ -24,6 +27,11 @@ public class UsuarioController extends AbstractController<Usuario, UsuarioDTO, L
 		return service;
 	}
 	
+	@ApiOperation(value = "Criptografa o Nome e Email do Usuário", nickname = "criptografar")
+	@ApiResponses(value = {
+		@ApiResponse(code = 200, message = "Usuário criptografado com sucesso"),
+		@ApiResponse(code = 500, message = "Erro ao criptografar")
+	})
 	@PostMapping(value = "/{id}/criptografar")
 	public ResponseEntity<String> criptografar(@PathVariable Long id) {
 		service.criptografarUsuario(id);
