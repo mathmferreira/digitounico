@@ -1,0 +1,1069 @@
+{
+	"info": {
+		"_postman_id": "53ce7c95-5c88-4ed6-984d-b3fb75379aed",
+		"name": "API Digito Unico",
+		"description": "API que calcula, atraves de uma unico, o digito unico de um numero\n\nContact Support:\n Name: Matheus Ferreira\n Email: mathmferreira@hotmail.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "usuario",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Encontrar a entidade atraves do ID",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "3b1a1eb8-b71e-4c87-850b-3133da4e7000",
+												"exec": [
+													"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+													"\r",
+													"var jsonData = JSON.parse(responseBody);\r",
+													"tests[\"Entity has a valid ID\"] = jsonData.id > 0;"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/usuario/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"usuario",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1",
+													"description": "(Required) id"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Entidade encontrada",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/usuario/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"usuario",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n\t\"digitosUnicos\": [\n\t\t{\n\t\t\t\"concatenacao\": \"<integer>\",\n\t\t\t\"digitoUnicoGerado\": \"<integer>\",\n\t\t\t\"id\": \"<long>\",\n\t\t\t\"idUsuario\": \"<long>\",\n\t\t\t\"numero\": \"<string>\"\n\t\t},\n\t\t{\n\t\t\t\"concatenacao\": \"<integer>\",\n\t\t\t\"digitoUnicoGerado\": \"<integer>\",\n\t\t\t\"id\": \"<long>\",\n\t\t\t\"idUsuario\": \"<long>\",\n\t\t\t\"numero\": \"<string>\"\n\t\t}\n\t],\n\t\"email\": \"<string>\",\n\t\"id\": \"<long>\",\n\t\"nome\": \"<string>\"\n}"
+										},
+										{
+											"name": "Entidade nao encontrada",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/usuario/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"usuario",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Alterar uma entidade pelo ID",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "081e9407-9530-4980-b81e-0cee643c8e6d",
+												"exec": [
+													"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+													"\r",
+													"var jsonData = JSON.parse(responseBody);\r",
+													"tests[\"Entity has a valida ID\"] = jsonData.id > 0;"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"nome\": \"Matheus Ferreira\",\n    \"email\": \"mathmferreira@gmail.com\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/usuario/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"usuario",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1",
+													"description": "(Required) id"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Entidade nao encontrada",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/usuario/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"usuario",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Campos mal preenchidos",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/usuario/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"usuario",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Entidade alterada com sucesso",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/usuario/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"usuario",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n\t\"digitosUnicos\": [\n\t\t{\n\t\t\t\"concatenacao\": \"<integer>\",\n\t\t\t\"digitoUnicoGerado\": \"<integer>\",\n\t\t\t\"id\": \"<long>\",\n\t\t\t\"idUsuario\": \"<long>\",\n\t\t\t\"numero\": \"<string>\"\n\t\t},\n\t\t{\n\t\t\t\"concatenacao\": \"<integer>\",\n\t\t\t\"digitoUnicoGerado\": \"<integer>\",\n\t\t\t\"id\": \"<long>\",\n\t\t\t\"idUsuario\": \"<long>\",\n\t\t\t\"numero\": \"<string>\"\n\t\t}\n\t],\n\t\"email\": \"<string>\",\n\t\"id\": \"<long>\",\n\t\"nome\": \"<string>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Criptografa o Nome e Email do Usuario",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "b710cf66-fa0b-4db5-ae7f-1c45daa6f1a2",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "c812ded3-37a2-4222-9bfd-53c8f45b65c7",
+												"exec": [
+													"tests[\"Status code is 200\"] = responseCode.code === 200;"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/usuario/:id/criptografar",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"usuario",
+												":id",
+												"criptografar"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1",
+													"description": "(Required) id"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Usuario criptografado com sucesso",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/usuario/:id/criptografar",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"usuario",
+														":id",
+														"criptografar"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "<string>"
+										},
+										{
+											"name": "Erro ao criptografar",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/usuario/:id/criptografar",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"usuario",
+														":id",
+														"criptografar"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Excluir uma entidade pelo ID",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "e04d03bb-1402-4d22-bfa2-c361ba298efd",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "78cd5dcf-3a6a-4610-a6ee-dc20bbba5924",
+												"exec": [
+													"tests[\"Status code is 200\"] = responseCode.code === 200;"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/usuario/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"usuario",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1",
+													"description": "(Required) id"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Entidade nao encontrada",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/usuario/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"usuario",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Entidade excluida com sucesso",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/usuario/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"usuario",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "\"<string>\""
+										}
+									]
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Criar nova entidade",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "127336bc-1c65-4ff4-93ba-39750be21639",
+										"exec": [
+											"tests[\"Status code is 201\"] = responseCode.code === 201;\r",
+											"\r",
+											"var jsonData = JSON.parse(responseBody);\r",
+											"tests[\"Entity has an valid ID\"] = jsonData.id > 0;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Matheus\",\n    \"email\": \"mathmferreira@hotmail.com\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/usuario/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"usuario",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Entidade criada com sucesso",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/usuario/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"usuario",
+												""
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n\t\"digitosUnicos\": [\n\t\t{\n\t\t\t\"concatenacao\": \"<integer>\",\n\t\t\t\"digitoUnicoGerado\": \"<integer>\",\n\t\t\t\"id\": \"<long>\",\n\t\t\t\"idUsuario\": \"<long>\",\n\t\t\t\"numero\": \"<string>\"\n\t\t},\n\t\t{\n\t\t\t\"concatenacao\": \"<integer>\",\n\t\t\t\"digitoUnicoGerado\": \"<integer>\",\n\t\t\t\"id\": \"<long>\",\n\t\t\t\"idUsuario\": \"<long>\",\n\t\t\t\"numero\": \"<string>\"\n\t\t}\n\t],\n\t\"email\": \"<string>\",\n\t\"id\": \"<long>\",\n\t\"nome\": \"<string>\"\n}"
+								},
+								{
+									"name": "Campos mal preenchidos",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/usuario/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"usuario",
+												""
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Listar todas as entidades",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "959050c6-7720-44ae-b0f5-24ef2526d242",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"\r",
+											"var jsonData = JSON.parse(responseBody);\r",
+											"tests[\"Result is an array\"] = Array.isArray(jsonData);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/usuario/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"usuario",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/usuario/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"usuario",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n\t{\n\t\t\"digitosUnicos\": [\n\t\t\t{\n\t\t\t\t\"concatenacao\": \"<integer>\",\n\t\t\t\t\"digitoUnicoGerado\": \"<integer>\",\n\t\t\t\t\"id\": \"<long>\",\n\t\t\t\t\"idUsuario\": \"<long>\",\n\t\t\t\t\"numero\": \"<string>\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"concatenacao\": \"<integer>\",\n\t\t\t\t\"digitoUnicoGerado\": \"<integer>\",\n\t\t\t\t\"id\": \"<long>\",\n\t\t\t\t\"idUsuario\": \"<long>\",\n\t\t\t\t\"numero\": \"<string>\"\n\t\t\t}\n\t\t],\n\t\t\"email\": \"<string>\",\n\t\t\"id\": \"<long>\",\n\t\t\"nome\": \"<string>\"\n\t},\n\t{\n\t\t\"digitosUnicos\": [\n\t\t\t{\n\t\t\t\t\"concatenacao\": \"<integer>\",\n\t\t\t\t\"digitoUnicoGerado\": \"<integer>\",\n\t\t\t\t\"id\": \"<long>\",\n\t\t\t\t\"idUsuario\": \"<long>\",\n\t\t\t\t\"numero\": \"<string>\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"concatenacao\": \"<integer>\",\n\t\t\t\t\"digitoUnicoGerado\": \"<integer>\",\n\t\t\t\t\"id\": \"<long>\",\n\t\t\t\t\"idUsuario\": \"<long>\",\n\t\t\t\t\"numero\": \"<string>\"\n\t\t\t}\n\t\t],\n\t\t\"email\": \"<string>\",\n\t\t\"id\": \"<long>\",\n\t\t\"nome\": \"<string>\"\n\t}\n]"
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "digitounico",
+					"item": [
+						{
+							"name": "Calcular o Digito Unico de um numero",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ee5b5fda-1f82-4c06-93df-121e42adc606",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"\r",
+											"var jsonData = JSON.parse(responseBody);\r",
+											"tests[\"Generated DigitoUnico is correct\"] = jsonData.digitoUnicoGerado === 8;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"concatenacao\": 4,\n    \"numero\": \"9875\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/digitounico/calcular",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"digitounico",
+										"calcular"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Campos mal preenchidos",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/digitounico/calcular",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"digitounico",
+												"calcular"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Usuario nao encontrado",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/digitounico/calcular",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"digitounico",
+												"calcular"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Digito calculado com sucesso",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/digitounico/calcular",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"digitounico",
+												"calcular"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n\t\"concatenacao\": \"<integer>\",\n\t\"digitoUnicoGerado\": \"<integer>\",\n\t\"id\": \"<long>\",\n\t\"numero\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Listar todas as entidades",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dd2470f2-2faa-4a65-bfb7-3d7ae615f8d4",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"\r",
+											"var jsonData = JSON.parse(responseBody);\r",
+											"tests[\"Result is an array\"] = Array.isArray(jsonData);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/digitounico/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"digitounico",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/digitounico/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"digitounico",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n\t{\n\t\t\"concatenacao\": \"<integer>\",\n\t\t\"digitoUnicoGerado\": \"<integer>\",\n\t\t\"id\": \"<long>\",\n\t\t\"idUsuario\": \"<long>\",\n\t\t\"numero\": \"<string>\"\n\t},\n\t{\n\t\t\"concatenacao\": \"<integer>\",\n\t\t\"digitoUnicoGerado\": \"<integer>\",\n\t\t\"id\": \"<long>\",\n\t\t\"idUsuario\": \"<long>\",\n\t\t\"numero\": \"<string>\"\n\t}\n]"
+								}
+							]
+						},
+						{
+							"name": "Encontrar pelo ID do Usuario",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ca13e249-fd99-4530-b3a5-42414990f908",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"\r",
+											"var jsonData = JSON.parse(responseBody);\r",
+											"tests[\"Result is an array\"] = Array.isArray(jsonData);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/digitounico/usuario/:idUsuario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"digitounico",
+										"usuario",
+										":idUsuario"
+									],
+									"variable": [
+										{
+											"key": "idUsuario",
+											"value": "1",
+											"description": "(Required) idUsuario"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Listagem das entidades",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/digitounico/usuario/:idUsuario",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"digitounico",
+												"usuario",
+												":idUsuario"
+											],
+											"variable": [
+												{
+													"key": "idUsuario"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n\t{\n\t\t\"concatenacao\": \"<integer>\",\n\t\t\"digitoUnicoGerado\": \"<integer>\",\n\t\t\"id\": \"<long>\",\n\t\t\"numero\": \"<string>\"\n\t},\n\t{\n\t\t\"concatenacao\": \"<integer>\",\n\t\t\"digitoUnicoGerado\": \"<integer>\",\n\t\t\"id\": \"<long>\",\n\t\t\"numero\": \"<string>\"\n\t}\n]"
+								},
+								{
+									"name": "Usuario nao encontrado",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/digitounico/usuario/:idUsuario",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"digitounico",
+												"usuario",
+												":idUsuario"
+											],
+											"variable": [
+												{
+													"key": "idUsuario"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "9c29e0f3-9545-4355-a732-13b0963d7383",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "f0dd0738-de12-46ec-b017-bf5b5e85510a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "53ad81a7-6d6e-4200-ab45-f1b70ee50a1d",
+			"key": "baseUrl",
+			"value": "localhost:8080",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
