@@ -6,23 +6,27 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import br.com.digitounico.view.View;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Builder @Getter @Setter
+@Data @Builder
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
-@EqualsAndHashCode(callSuper = false)
-public class DigitoUnicoDTO extends BaseDTO {
+@EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
+@JsonInclude(content = Include.NON_NULL)
+@SuppressWarnings("serial")
+public class DigitoUnicoDTO implements BaseDTO {
 
+	@EqualsAndHashCode.Include
 	@JsonView(View.IgnoreUsuario.class)
 	private Long id;
 	
