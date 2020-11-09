@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>br.com.digitounico</groupId>
 		<artifactId>digitounico</artifactId>
-		<version>1.2.0</version>
+		<version>1.2.1</version>
 	</parent>
 	<artifactId>digitounico-api</artifactId>
 	<name>digitounico-api</name>
@@ -15,7 +15,7 @@
 		<dependency>
 			<groupId>br.com.digitounico</groupId>
 			<artifactId>digitounico-service</artifactId>
-			<version>1.2.0</version>
+			<version>1.2.1</version>
 		</dependency>
 		<dependency>
 			<groupId>io.rest-assured</groupId>
@@ -24,28 +24,23 @@
 		</dependency>
 		<dependency>
 			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
-			<version>3.0.0-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-			<version>3.0.0-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-data-rest</artifactId>
-			<version>3.0.0-SNAPSHOT</version>
+			<version>3.0.0</version>
 		</dependency>
 	</dependencies>
 
 	<repositories>
-		<repository>
-			<id>jcenter-snapshots</id>
-			<name>jcenter</name>
-			<url>http://oss.jfrog.org/artifactory/oss-snapshot-local/</url>
-		</repository>
-	</repositories>
+        <repository>
+          <id>jcenter-snapshots</id>
+          <name>jcenter</name>
+          <url>https://jcenter.bintray.com/</url>
+        </repository>
+    </repositories>
 
 	<build>
 		<plugins>

@@ -19,18 +19,19 @@ import javax.validation.constraints.Pattern;
 
 import br.com.digitounico.utils.Nomenclatura;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = Nomenclatura.TABELA + "digito_unico")
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor
-@EqualsAndHashCode(callSuper = false)
+@Data @NoArgsConstructor @AllArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
+@SuppressWarnings("serial")
 public class DigitoUnico extends AuditableEntity<Long> {
 
 	@Id
+	@EqualsAndHashCode.Include
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "digito_unico" + Nomenclatura.SEQUENCIA)
 	@SequenceGenerator(name = "digito_unico" + Nomenclatura.SEQUENCIA, sequenceName = "digito_unico_id" + Nomenclatura.SEQUENCIA, allocationSize = 1)
 	@Column(name = Nomenclatura.CHAVE_PRIMARIA + "digito_unico", nullable = false)

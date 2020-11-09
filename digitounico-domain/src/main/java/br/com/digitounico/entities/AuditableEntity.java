@@ -20,6 +20,7 @@ import lombok.Setter;
 @Getter @Setter
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
+@SuppressWarnings("serial")
 public abstract class AuditableEntity<PK extends Serializable> implements Persistable<PK> {
 
 	@CreatedDate

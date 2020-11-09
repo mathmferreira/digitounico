@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com.digitounico</groupId>
 	<artifactId>digitounico</artifactId>
-	<version>1.2.0</version>
+	<version>1.2.1</version>
 	<packaging>pom</packaging>
 	<name>digitounico</name>
 
@@ -17,7 +17,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.6.RELEASE</version>
+		<version>2.3.5.RELEASE</version>
 		<relativePath />
 	</parent>
 

@@ -2,7 +2,7 @@ package br.com.digitounico.entities;
 
 import java.io.Serializable;
 
-public interface Persistable<PK extends Serializable> {
+public interface Persistable<PK extends Serializable> extends Serializable {
 	
 	public abstract PK getId();
 	

@@ -1,5 +1,11 @@
 package br.com.digitounico.dto;
 
-public abstract class BaseDTO {
+import java.io.Serializable;
+
+public interface BaseDTO extends Serializable {
+	
+	public Long getId();
+	
+	public void setId(Long id);
 
 }
