@@ -71,4 +71,4 @@ Realizada através do Swagger e disponível em execução na URL **http://localh
 
 ### Conclusão
 
-Qualquer dúvida, sugestão ou caso queira entrar em contato, basta enviar um e-mail para **mathmferreira@hotmail.com** (Matheus Ferreira). 
+Qualquer dúvida, sugestão ou caso queira entrar em contato, basta enviar um e-mail para **mathmferreira@hotmail.com** (Matheus Maia). 
