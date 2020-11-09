@@ -66,7 +66,7 @@ digitounico-api > br > com > digitounico > DigitoUnicoApplication.java
 
 ### Documentação da API
 
-Realizada através do Swagger e disponível em execução na URL **http://localhost:8080/api/swagger-ui.html**
+Realizada através do Swagger e disponível em execução na URL **http://localhost:8080/documentation/swagger-ui/index.html**
 
 
 ### Conclusão
