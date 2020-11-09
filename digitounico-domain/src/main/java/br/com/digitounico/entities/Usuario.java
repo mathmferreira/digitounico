@@ -11,18 +11,19 @@ import javax.validation.constraints.NotBlank;
 
 import br.com.digitounico.utils.Nomenclatura;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = Nomenclatura.TABELA + "usuario")
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor
-@EqualsAndHashCode(callSuper = false)
+@Data @NoArgsConstructor @AllArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
+@SuppressWarnings("serial")
 public class Usuario extends AuditableEntity<Long> {
 
 	@Id
+	@EqualsAndHashCode.Include
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usuario" + Nomenclatura.SEQUENCIA)
 	@SequenceGenerator(name = "usuario" + Nomenclatura.SEQUENCIA, sequenceName = "usuario_id" + Nomenclatura.SEQUENCIA, allocationSize = 1)
 	@Column(name = Nomenclatura.CHAVE_PRIMARIA + "usuario", nullable = false)

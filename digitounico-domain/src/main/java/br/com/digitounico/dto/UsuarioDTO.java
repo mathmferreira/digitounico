@@ -6,21 +6,25 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Builder @Getter @Setter
+@Data @Builder
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
-@EqualsAndHashCode(callSuper = false)
-public class UsuarioDTO extends BaseDTO {
+@EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
+@JsonInclude(content = Include.NON_NULL)
+@SuppressWarnings("serial")
+public class UsuarioDTO implements BaseDTO {
 
+	@EqualsAndHashCode.Include
 	private Long id;
 	
 	@NotBlank
